@@ -13,15 +13,13 @@ services:
     build:
       context: .
       dockerfile: Dockerfile-php
-    command: php artisan serve
+    command: php artisan serve --port=3000
     env_file: .env
-    volumes:
-      - .:/laravel_ddd
     ports:
       - "3456:3000"
     tty: true
-    environment:
-      - PROJECT_NAME=demo
+    volumes:
+      - .:/laravel_ddd
 volumes:
   db-data:
     driver: local
